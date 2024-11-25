@@ -1,0 +1,156 @@
+
+:root {
+    /*------Color variables------*/
+    --amber_400_75: #e5d82175;
+    --black_900: #000000;
+    --black_900_3f:#0000003f;
+    --black_900_72:#00000072;
+    --black_900_87:#00000087;
+    --black_900_a3:#000000a3;
+    --blue_gray_100: #d9d9d9;
+    --deep_purple_500: #7836b2;
+    --gray_100: #faf3f3;
+    --gray_100_01: #faf2f2;
+    --gray_200: #eeeeee;
+    --indigo_50: #ddd9f9;
+    --lime_200: ■ #eaeb92;
+    --lime_300_f9: #dbc16df9; --purple_200: #de93ce; --purple_200_b2: #de94ceb2;
+    --teal_100: #b5e8d5;
+    --teal_100_d6: #b5e7d5d6;
+    --white_a700: #ffffff;
+    --yellow_300_f9: #ffe771f9;
+    
+    --shadow-xs: 4px 4px 4px 0 #0000003f;
+    --shadow-sm: 0 4px 51px 18px #000000a3;
+    --shadow-md: 5px 4px 4px 0 #0000003f;
+
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-xl: 22px;
+    --radius-2x1: 30px;
+    --radius-3x1: 64px;
+    --radius-4x1: 220px;
+
+    --space-xs: 4px;
+    --space-sm: 16px;
+    --space-md: 20px;
+    --space-lg: 34px;
+    --space-xl: 140px;
+}
+
+
+.flex-col-center-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.columnfree_user_icon-one {
+    background-color: var(--white_a700);
+    width: 100%;
+}
+
+.header__top-row {
+    background-color: var(--indigo_50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 6px var(--space-lg);
+    @media only screen and (max-width: 550px) {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.header__logo-column {
+    height: 130px;
+    margin-left: 6px;
+    background-color: var(--black_900);
+    width: 130px;
+    border-radius: var(--radius-3x1);
+    @media only screen and (max-width: 1440px) {
+        height: auto;
+        margin-left: 0px;
+    }
+    
+    @media only screen and (max-width: 1050px) {
+        height: auto;
+        margin-left: 0px;
+    }
+}
+
+.header__logo {
+    color: var(--white_a700) !important;
+    margin-top: 6px;
+    font-family: Comic Neue !important;
+    @media only screen and (max-width: 1050px) { font-size: 32px;}
+    @media only screen and (max-width: 550px) { font-size: 26px;}
+}
+
+
+.header__user-row {
+    gap: var(--space-md);
+    display: flex;
+    align-items: center;
+}
+
+.header__user-icon {
+    height: 70px;
+    width: 34%;
+    object-fit: contain;
+}
+
+.header__nav-row {
+    padding-left: 158px;
+    padding-right: 56px;
+    background-color: var(--lime_200);
+    display: flex;
+    @media only screen and (max-width: 1440px) { padding-left: 32px;}
+    @media only screen and (max-width: 1050px) {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+    @media only screen and (max-width: 550px) {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.header__nav-menu {
+    gap: var(--space-md);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-text-link {
+    background-color: var(--amber_400_75);
+    @media only screen and (max-width: 1050px) { font-size: 30px;}
+    @media only screen and (max-width: 550px) {
+        font-size: 28px;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}   
+
+
+.header__menu-item {
+    padding: 8px 22px;
+}
+
+.profile-text-link {
+    margin-top: 6px;
+    @media only screen and (max-width: 1050px) {font-size: 30px;}
+    @media only screen and (max-width: 550px) { font-size: 28px;}
+}
+
+.view {
+    height: 116px;
+    background-color: var(--teal_100);
+    align-self: stretch;
+}

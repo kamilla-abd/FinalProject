@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border: none;
+            margin-bottom: 20px;
+        }
+        table thead th {
+            font-weight: bold;
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            background: #d8d8d8;
+            font-size: 14px;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+        table tbody td {
+            text-align: left;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 10px 15px;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        table thead tr th:first-child, .table tbody tr td:first-child {
+            border-left: none;
+        }
+        table thead tr th:last-child, .table tbody tr td:last-child {
+            border-right: none;
+        }
+        table tbody tr:nth-child(even){
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+
+<h2>All Users</h2>
+<table>
+    <thead>
+    <tr><th>Username</th><th>Email</th><th>Is Admin</th></tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.isAdmin ? 'Yes' : 'No'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>All Tasks</h2>
+<a th:href="@{/admin/add}">Add New Task</a>
+
+<form method="get" th:action="@{/admin}">
+    <label>Filter by Category:</label>
+    <select name="category">
+        <option value="">All Categories</option>
+        <option th:each="category : ${categories}"
+                th:value="${category.categoryId}"
+                th:text="${category.name}"></option>
+    </select>
+    <br>
+
+    <label>Filter by Status:</label>
+    <select name="status">
+        <option value="">All Statuses</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+    </select>
+    <br>
+
+    <button type="submit">Filter</button>
+</form>
+<div>
+    <a th:href="@{/admin(sort='asc')}" class="btn">Sort by Due Date (Ascending)</a> <br>
+    <a th:href="@{/admin(sort='desc')}" class="btn">Sort by Due Date (Descending)</a>
+</div>
+
+<form class="d-flex mb-3" th:action="@{/admin}" method="get">
+    <input type="text" name="search" class="form-control" placeholder="Search Tasks" th:value="${search}">
+    <button type="submit" class="btn btn-primary ms-2">Search</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th onclick="sortTable(0)">Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>category</th>
+        <th>user</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.dueDate}"></td>
+        <td th:text="${task.status}"></td>
+        <td th:text="${task.priority}"></td>
+        <td th:text="${task.category.name}"></td>
+        <td th:text="${task.user.username}"></td>
+        <td>
+            <a th:href="@{|/admin/edit/${task.taskId}|}">Edit</a>
+            <a th:href="@{|/admin/delete/${task.taskId}|}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="pagination">
+    <span th:if="${currentPage > 0}">
+        <a th:href="@{/admin(page=${currentPage - 1})}" class="btn btn-secondary">Previous</a>
+    </span>
+
+    <span th:if="${currentPage < totalPages - 1}">
+        <a th:href="@{/admin(page=${currentPage + 1})}" class="btn btn-secondary">Next</a>
+    </span>
+</div>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>

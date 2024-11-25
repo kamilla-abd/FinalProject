@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ice cream</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/FrameThree.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+    
+<body>  
+  <div class="row">
+    <div class="rowsignup">
+      <div class="columnsignup">
+          <h1 class="columnsignup__link ui heading size-headingxl">Sign up</h1>
+
+
+        <form th:action="@{/login}" method="post">
+          <label class="columnsignup__input--username ui input gray_200 size-sm fill round">
+            <img src="public/images/git_ico.png" alt="Free-user-icon-3296-thumb 3" class="free-user-icon-3296-thumb-3"/>
+            <input name="username" placeholder="  User name" type="text" required/>
+          </label>
+        
+          <label class="columnsignup__input--password ui input gray_200 size-sm fill round"> 
+            <img src="public/images/password_ico.png" alt="807292 1" class="class-807292-1" />
+            <input name="password" placeholder="  Password" type="password" required/>
+          </label>
+        
+          <button class="columnsignup__button--login ui button gray_200 size-2xl fill" type="submit">Log in</button>
+        </form>
+        
+        <button class="columnsignup__button--github ui button gray_200 size-lg fill">
+          <img src="public/images/git_ico.png" alt="733609 1" class="class-733609-1" /> <span> Sign up with GitHub</span>
+        </button>
+
+        <p><form th:action="@{/register}" method="get">
+          <button class="columnsignup__button--register ui button gray_200 size-2xl fill" type="submit">Register</button>
+        </form></p>
+    </div>
+    </div>
+  </div>
+</body>

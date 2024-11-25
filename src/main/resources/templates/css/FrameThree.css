@@ -1,0 +1,187 @@
+body{
+    background: linear-gradient(180deg, #de93ce, #b5e8d5);
+}
+
+
+
+.row {
+    padding-top: 72px;
+    padding-bottom: 72px;
+    width: 100%;
+    @media only screen and (max-width: 1440px) {
+    padding-top: 32px;
+    padding-bottom: 32px;}
+
+    @media only screen and (max-width: 1050px) { 
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-nd);}
+
+
+    @media only screen and (max-width: 550px) {
+    padding-top: var(--space-sm); 
+    padding-bottom: var(--space-sm);
+    }
+}
+
+.rowsignup {
+    margin-bottom: 30px;
+    padding-left: 56px;
+    padding-right: 56px;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: 1050px) {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    }
+
+    @media only screen and (max-width: 550px) {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+    }
+}
+
+.columnsignup {
+    background: linear-gradient(233deg, #b5e7d5d6 50%,#de94ceb2 50%);
+    box-shadow: var(--shadow-sm);
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 58px 56px;
+    border-radius: var(--radius-2x1);
+    @media only screen and (max-width: 1440px) { width: 100%;
+    }
+    @media only screen and (max-width: 1050px) { width: 100%;
+    padding: var(--space-nd);}
+    @media only screen and (max-width: 550px) { padding: var(--space-sm);}
+    min-width: 590px;
+}
+
+.columnsignup__link {
+    letter-spacing: 12px;
+    font-family: DM Sans !important;
+    }
+
+.columnsignup__input--username {
+    color: var(--black_900_72) !important; 
+    margin-top: 64px;
+    padding-left: var(--space-md); 
+    padding-right: 12px;
+    letter-spacing: -1.8px;
+    font-size: 36px;
+    background-color: var(--gray_200) !important;
+    width: 100%;
+    height: 94px;
+    border-radius: 22px !important;
+}
+
+.columnsignup__input--username input[type=text] {
+    padding-left: 25px;
+}
+
+.free-user-icon-3296-thumb-3 {
+    height: 56px;
+    width: 58px;
+    object-fit: contain;
+}
+
+.columnsignup__input--password {
+    color: var(--black_900_72) !important;
+    margin-top: 32px;
+    padding-left: var(--space-md);
+    padding-right: 12px;
+    letter-spacing: -2px;
+    font-size: 40px;
+    background-color: var(--gray_200) !important;
+    width: 100%;
+    height: 94px;
+    border-radius: 22px !important;
+}
+
+.columnsignup__input--password input[type=password] {
+    padding-left: 25px;
+}
+
+.class-807292-1 {
+    height: 56px;
+    width: 52px;
+    object-fit: contain;
+}
+
+
+.columnsignup__button--login {
+    color: var(--black_900) !important;
+    margin-top: 96px;
+    padding-left: var(--space-1g);
+    padding-right: var(--space-1g);
+    letter-spacing: 1.6px;
+    font-family: DM Sans;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: var(--gray_200) !important;
+    height: 94px;
+    min-width: 578px;
+    border-radius: 8px !important;
+    @media only screen and (max-width: 1440px) { font-size: 34px;}
+    @media only screen and (max-width: 1050px) { font-size: 34px;}
+    @media only screen and (max-width: 550px) { 
+        font-size: 32px;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+    
+.columnsignup__button--github {
+    color: var(--black_900) !important;
+    margin-top: 50px;
+    margin-bottom: 4px;
+    padding-left: 22px;
+    padding-right: var(--space-1g);
+    letter-spacing: 0.4px;
+    font-family: DM Sans;
+    font-size: 40px;
+    font-weight: 300;
+    gap: var(--space-1g);
+    background-color: var(--gray_200) !important; height: 76px;
+    min-width: 578px;
+    border-radius: 22px !important;
+    @media only screen and (max-width: 1440px) { font-size: 34px;}
+    @media only screen and (max-width: 1050px) { font-size: 34px;}
+    @media only screen and (max-width: 550px) {
+        font-size: 32px;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.columnsignup__button--register {
+    color: var(--black_900) !important;
+    margin-top: 50px;
+    margin-bottom: 4px;
+    padding-left: 22px;
+    padding-right: var(--space-1g);
+    letter-spacing: 1.6px;
+    font-family: DM Sans;
+    font-size: 40px;
+    font-weight: 300;
+    gap: var(--space-1g);
+    background-color: var(--gray_200) !important;
+    height: 60px;
+    min-width: 578px;
+    border-radius: 18px !important;
+    @media only screen and (max-width: 1440px) { font-size: 34px;}
+    @media only screen and (max-width: 1050px) { font-size: 34px;}
+    @media only screen and (max-width: 550px) {
+        font-size: 32px;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.class-733609-1{
+    height: 64px;
+    margin-bottom: 6px;
+    width: 64px;
+    object-fit: contain;
+}
