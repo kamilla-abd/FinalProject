@@ -1,0 +1,227 @@
+
+.product-details {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: 1050px) { width: 100%;}    
+}
+
+.product-details__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-details__image {
+    height: 440px;
+    background-color: var(--blue_gray_100);
+    width: 440px;
+    border-radius: var(--radius-4x1);
+    border: 1px solid var(--black_900);
+}
+
+.product-details__name {
+    margin-top: 24px;
+    font-family: Comic Neue !important;
+    align-self: center;
+
+    @media only screen and (max-width: 1050px) {
+        font-size: 32px;
+        margin-left: 0px;
+    }
+    
+    @media only screen and (max-width: 550px) { font-size: 26px;}
+}
+
+.product-details__divider {
+    height: 1px;
+    margin-left: 42px;
+    margin-right: 42px;
+    background-color: var(--black_900);
+    align-self: stretch;
+    @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+    margin-right: 0px;
+    }
+}
+
+.product-details__description {
+    margin-top: 6px;
+    width: 80%;
+    font-family: Darker Grotesque !important;
+    text-align: center;
+    align-self: center;
+    line-height: 43px;
+    @media only screen and (max-width: 1050px) { font-size: 26px;}
+    @media only screen and (max-width: 550px) {font-size: 24px;}
+}
+
+.product-details__stock {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-details__stock-quantity {
+    font-family: Darker Grotesque !important;
+    @media only screen and (max-width: 1050px) { font-size: 32px;}
+    @media only screen and (max-width: 550px) { font-size: 26px;}
+}
+
+.product-details__price {
+    margin-top: -24px;
+    font-family: Darker Grotesque !important;
+    position: relative;
+    @media only screen and (max-width: 1050px) { font-size: 30px;}
+    @media only screen and (max-width: 550px) { font-size: 28px;}
+}
+
+
+.product-details__add-button {
+    color: var(--black_900) !important;
+    margin-top: 6px;
+    margin-left: 38px;
+    margin-right: 48px;
+    padding-left: 33px;
+    padding-right: 33px; font-family: Dongle;
+    font-size: 48px;
+    background-color: var(--lime_300_f9) !important;
+    box-shadow: 4px 4px 4px 0 #0000003f !important;
+    align-self: stretch;
+    height: 78px;
+    border-radius: 14px !important;
+    border: 1px solid var(--black_900);
+    @media only screen and (max-width: 1440px) {font-size: 40px;}
+    @media only screen and (max-width: 1050px) {
+        font-size: 32px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    @media only screen and (max-width: 550px) {
+        font-size: 26px;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.newscreenbody {
+    height: 930px;
+    margin-bottom: 4px;
+    position: relative;
+
+}
+
+.columnview {
+    background-color: var(--teal_100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame-one__image-2 {
+    height: 486px; margin-top: -14px;
+    margin-left: 134px;
+    position: relative;
+    width: 26%;
+    object-fit: contain;
+    @media only screen and (max-width: 1050px) { margin-left: 0px;}
+}
+
+
+.columnourmenu {
+    padding-left: 56px;
+    padding-right: 56px;
+    /* flex: 1; */
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    /* position: absolute; */
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    /* height: max-content; */
+    margin: auto;
+    @media only screen and (max-width: 1050px) {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+    
+    @media only screen and (max-width: 550px) {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.frame-one__our-menu {
+    color: var(--white_a700) !important;
+    font-family: Days One !important;
+    @media only screen and (max-width: 1440px) { font-size: 48px;}
+}
+
+.listview {
+    /* margin-top: -42px; */
+    gap: var(--space-x1);
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 1602px;
+    @media only screen and (max-width: 1050px) {flex-direction: column;}
+}
+
+
+.frame-one__image {
+    height: 498px;
+    width: 26%;
+    object-fit: contain;
+    position: relative;
+    top: 11%;
+    right: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frame-one__image-1 {
+    height: 498px;
+    width: 28%;
+    object-fit: contain;
+    position: relative;
+    right: 7%;
+    top: 11%;
+    margin: auto;
+}
+
+
+.menu-item{
+    margin-top: 0px;
+    padding-top: 0px;
+    padding: 8px 22px;
+}
+
+.menu-item:hover{
+    transition: 0.3s ease-in-out;
+    background: var(--amber_400_75);
+}
+
+.logout_btn{
+    border-radius: 30px;
+    cursor: pointer;
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.logout_btn:hover{
+    transition: 0.3s ease-in-out;
+    background: rgba(203, 197, 236, 1);
+}
+
+
+
+.container-fluid{
+    justify-content: center;
+}
