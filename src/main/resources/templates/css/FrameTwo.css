@@ -1,0 +1,444 @@
+.section__delivery-method--pickup {
+    font-family: Darker Grotesque !important;
+    border-radius: 10px;
+    padding: 0px 1%;
+    @media only screen and (max-width: 1050px) { font-size: 34px;}
+    @media only screen and (max-width: 550px) {font-size: 32px;}
+}
+
+.section__delivery-method--pickup:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.columnfreeuseri {
+    margin-bottom: 66px;
+}
+
+.stackview {
+    height: 806px;
+    margin-top: -2px;
+    position: relative;
+    align-content: center;
+    @media only screen and (max-width: 1440px) { height: auto;}
+    @media only screen and (max-width: 1050px) {height: auto;}
+}
+.columnview-1 { gap: 38px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.section {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: stretch;
+    display: flex;
+    max-width: 1780px;
+    width: 100%;
+    @media only screen and (max-width: 1440px) {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+    @media only screen and (max-width: 1050px) {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+}
+
+.section__column--left {
+    gap: 32px;
+    display: flex;
+    width: 100%;
+    @media only screen and (max-width: 1050px) {flex-direction: column;}    
+}
+
+.section__column--right {
+    gap: 40px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    @media only screen and (max-width: 1050px) {align-self: stretch;}
+}
+
+.section__image-row {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: var(--gray_100_01);
+    box-shadow: var (--shadow-md);
+    padding: 6px;
+    padding-top: 12px;
+    border-radius: var(--radius-1g);
+    box-shadow: var(--shadow-xs);
+    border-radius: var(--radius-xs);
+    @media only screen and (max-width: 1050px) {flex-direction: column;}
+}
+
+.section__image {
+    position: relative;
+    height: 170px;
+    width: 12%;
+    object-fit: contain;
+    @media only screen and (max-width: 1050px) {width: 100%;}
+}
+
+.section__details {
+    margin-top: 38px;
+    flex: 1;
+    width: 85%;
+    position: relative;
+    float: right;
+    @media only screen and (max-width: 1050px) {align-self: stretch;}
+}
+
+.section__details-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1050px) {flex-direction: column;}
+}
+
+.section__details-column {
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section__name {
+    font-family: Comic Neue !important;
+    @media only screen and (max-width: 1050px) {font-size: 32px;}
+    @media only screen and (max-width: 550px) {font-size: 26px;}
+}
+
+.section__description {
+    font-family: Darker Grotesque !important;
+    @media only screen and (max-width: 1050px) { font-size: 26px;}
+    @media only screen and (max-width: 550px) { font-size: 24px;}
+}
+
+.section__price-row {
+    margin-bottom: 10px;
+    padding-left: 56px;
+    padding-right: 56px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1050px) {
+        align-self: stretch;
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+    @media only screen and (max-width: 550px) {
+        flex-direction: column;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);}
+}
+
+.section__quantity-row {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 550px) { align-self: stretch;}
+}
+
+.section__quantity-stack {
+    height: 74px;
+    width: 12%;
+    position: relative;
+}
+.section__quantity-view--decrement {
+    height: 46px;
+    background-color: var(--blue_gray_100);
+    width: 46px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    margin: auto;
+    border-radius: var(--radius-xs);
+}
+
+.section__quantity-symbol--decrement {
+    font-family: Darker Grotesque !important;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    height: max-content;
+    width: max-content;
+    margin: auto;
+    line-height: 5px;
+    padding-bottom: 12px;
+    @media only screen and (max-width: 1050px) {font-size: 32px;}
+    @media only screen and (max-width: 550px) {font-size: 26px;}
+}
+
+.section__quantity-number {
+    margin-left: 18px;
+    line-height: 5px;
+    padding-bottom: 8px;
+    font-family: Darker Grotesque !important;
+    @media only screen and (max-width: 1050px) { font-size: 26px;}
+    @media only screen and (max-width: 550px) { font-size: 24px;}
+}
+
+.section__quantity-stack--increment {
+    height: 74px;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    flex: 1;
+    position: relative;
+}
+
+.section__quantity-view--increment{
+    height: 46px;
+    background-color: var(--blue_gray_100);
+    width: 46px;
+    position: absolute;
+    left: 20px;
+    bottom: 0px;
+    top: 0px;
+    padding: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: var(--radius-xs);
+}
+
+.section__quantity-view--decrement:hover,
+.section__quantity-view--increment:hover{
+    background-color: rgb(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.section__quantity-symbol--increment{
+    font-family: Darker Grotesque !important;
+    text-align: center;
+    padding: auto;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    height: max-content;
+    line-height: 5px;
+    padding-top: 13px ;
+    @media only screen and (max-width: 1050px) { font-size: 32px;}
+    @media only screen and (max-width: 550px) { font-size: 26px;}
+}
+
+.section__delivery-row {
+    margin-left: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: var(--gray_100);
+    box-shadow: var(--shadow-xs);
+    border-radius: var(--radius-1g);
+    @media only screen and (max-width: 550px) {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+.section__delivery-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section__delivery-options {
+    margin-left: 8%;
+    margin-right: 8%;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1050px) {
+        flex-direction: column;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+.section__delivery-option-row--home {
+    gap: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 550px) {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+}
+
+.section__delivery-line--home {
+    height: 68px;
+    background-color: var(--black_900);
+    width: 1px;
+    @media only screen and (max-width: 550px) {
+        width: 68px;
+        height: 1px;
+    }
+}
+
+.section__info-column {
+    margin-top: 10px;
+    width: 14%;
+    margin-right: 10px;
+    @media only screen and (max-width: 1050px) { width: 100%;}
+
+}
+
+.section__info-column-inner {
+    background-color: var(--gray_100);
+    box-shadow: var (--shadow-xs);
+    padding: 22px 8px;
+    border-radius: var(--radius-1g);
+    box-shadow: var(--shadow-xs);
+    border-radius: var(--radius-xs);
+    @media only screen and (max-width: 550px) {
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+    }
+}
+
+.section__info-column-inner--address {
+    margin-bottom: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section__address-title {
+    color: var(--deep_purple_500) !important;
+    font-family: Inter !important;
+    font-weight: 200;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+.section__address-title:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.section__products-row {
+    margin-top: 6px;
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.section__products-quantity {
+    color: var(--black_900_87) !important;
+    font-family: Inter !important;
+}
+
+.section__products-price {
+    color: var(--black_900_87) !important;
+    font-family: Darker Grotesque !important;
+    align-self: center;
+}
+
+.section__total-row {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.section__order-stack {
+    height: 64px;
+    margin-top: 8px;
+    align-self: stretch;
+    position: relative;
+
+    background-color: var(--yellow_300_f9);
+    box-shadow: var(--shadow-xs);
+    border-radius: var(--radius-xs);
+}
+
+.section__order-stack:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.section__order-text {
+    height: max-content;
+    width: max-content;
+    margin: auto;
+    @media only screen and (max-width: 1050px) { font-size: 32px;}
+    @media only screen and (max-width: 550px) { font-size: 26px;}
+}
+
+.cart__title {
+    color: var(--white_a700) !important;
+    font-family: Days One !important;
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    @media only screen and (max-width: 1440px) { font-size: 48px;}
+}
+
+
+
+.menu-item{
+    margin-top: 0px;
+    padding-top: 0px;
+    padding: 8px 22px;
+}
+
+.menu-item:hover{
+    transition: 0.3s ease-in-out;
+    background: var(--amber_400_75);
+}
+
+.logout_btn{
+    border-radius: 30px;
+    cursor: pointer;
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.logout_btn:hover{
+    transition: 0.3s ease-in-out;
+    background: rgba(203, 197, 236, 1);
+}
+
+.container-fluid{
+    justify-content: center;
+}
+
+.frame-one__our-menu {
+    color: var(--white_a700) !important;
+    font-family: Days One !important;
+    @media only screen and (max-width: 1440px) { font-size: 48px;}
+}
+
+.columnview {
+    background-color: var(--teal_100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.row_for_info{
+    width: 100%;
+    margin-bottom: 50px;
+    clear: both;
+}
