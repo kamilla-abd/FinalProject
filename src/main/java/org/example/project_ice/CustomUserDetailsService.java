@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import org.example.project_ice.repository.*;
+import org.example.project_ice.entity.*;
+
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

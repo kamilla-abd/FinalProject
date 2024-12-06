@@ -1,0 +1,7 @@
+SELECT * FROM products
+
+INSERT INTO products (id, name, description, image, available_amount, price)
+VALUES
+    (1, 'Name 1', 'Short info about ice cream in one/ two rows', 'ice_sample.png', 10, 100),
+    (2, 'Name 2', 'Short info about ice cream in one/ two rows', 'ice_cream3.png', 20, 200),
+    (3, 'Name 3', 'Short info about ice cream in one/ two rows', 'ice_cream2.png', 30, 300);

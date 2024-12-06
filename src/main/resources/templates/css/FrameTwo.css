@@ -191,7 +191,7 @@
     height: 74px;
     padding-left: var(--space-md);
     padding-right: var(--space-md);
-    flex: 1;
+    /* flex: 1; */
     position: relative;
 }
 

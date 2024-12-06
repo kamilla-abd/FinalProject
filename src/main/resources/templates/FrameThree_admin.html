@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Your Cart</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="theme-color" content="#000000"/>
+        <meta name="description"/>
+        <img
+            alt="Logo"
+            src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+            style="width: 0px; height: 0px; display: none"
+        />
+        
+        <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/font.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/components.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/FrameTwo.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/FrameThree_admin.css"/>
+        <link rel="stylesheet" href="css/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    </head>
+
+    <body>
+    <!-- main content section -->
+    <div class="columnfree_user_icon-one">
+        <div class="columnfreeuseri">
+        <!-- header section -->
+        <header>
+            <div class="header__top-row">
+                <div class="flex-col-center-center header__logo-column">
+                    <p class="header__logo ui text size-text3x1">Logo</p>
+                </div>
+
+                <div class="header__user-row logout_btn">
+                    <img src="public/images/user_ico.png" alt="User Icon" class="header__user-icon"/>
+                    <p style="font-family: Comic Neue;" class="ui text size-textlg">Log in/Log out</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="columnview">
+            <p class="frame-one__our-menu ui text size-text4x1">Admin tab</p>
+        </div> 
+        
+
+             <div class="columnview-1">
+                <div class="section">
+                    <div class="section__column--left">
+                        <div class="section__column--right">
+                            <div>
+                                <div class="section__image-row">
+
+
+                                    <div class="row_for_info" th:each="ice : ${ice_creams}">
+                                        <img th:src="@{'/public/images/' + ${ice.image}}" alt="Ice Cream Image" class="section__image" />
+                                        <div class="section__details">
+                                            <div class="section__details-row">
+                                                <div class="section__details-column">
+                                                    <p class="section__name ui text size-text3x1" th:text="${ice.name}"></p>
+                                                    <p class="section__description ui text size-textlg" th:text="${ice.description}">
+
+                                                    </p>
+                                                </div>
+                                                <div class="section__price-row">
+                                                    <div class="section__quantity-row">
+                                                        <div class="section__quantity-stack">
+                                                            <div class="section__quantity-view--decrement">
+                                                                <p class="section__quantity-symbol--decrement ui text size-text3x1">-</p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="section__quantity-number ui text size-textlg" th:text="${ice.availableAmount}"></p>
+                                                        <div class="section__quantity-stack--increment">
+                                                            <div class="section__quantity-view--increment">
+                                                                <p class="section__quantity-symbol--increment ui text size-text3x1">+</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="section__description ui text size-text2x1" th:text="${ice.price} + 'Kč'"></p>
+                                                    <p class="section__description delete ui text size-text2x1">Delete</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div> 
+
+                                <div class="section__delivery-row">
+                                    
+                                    <form class="refresh ui text size-text2x1">
+                                        <button type="submit">Refresh information</button>
+                                    </form>
+
+                                    <form class="add ui text size-text2x1">
+                                        <button type="submit">Add new ice cream</button>
+                                    </form>
+                                    
+                                    <div class="section__delivery-line--home"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <footer class="panel-footer">
+        <div class="container">
+        <div class="row">
+            <section id="hours" class="col-sm-4">
+            <span>Hours:</span><br>
+            Daily from 8:00 to 20:00<br><br>
+            <span>Phone:</span><br>
+            987-654-321
+            </section>
+
+            <section id="address" class="col-sm-4">
+            <span>Address:</span><br>
+            500 Terry Francine St.<br>
+            San Francisco,<br>
+            CA 94158<br>
+            </section>
+
+            <section id="testimonials" class="col-sm-4">
+            <p id="social">Social's</p>
+
+            <a href="https://www.facebook.com/wix" id="social_links">
+                <img src="public/images/facebook.png" alt="instagram" id="foot_img_inst">
+                <div href="" id="foot_text"><b>FACEBOOK &nbsp &nbsp</b></div>
+            </a>
+
+            <a href="https://www.twitter.com/wix" id="social_links" class="what">
+                <img src="public/images/instagram.png" alt="instagram" id="foot_img_inst">
+                <div href="" id="foot_text"><b>TWITTER &nbsp &nbsp &nbsp </b></div>
+            </a>
+
+            <a href="https://www.instagram.com/wix" id="social_links">
+                <img src="public/images/twit.png" alt="instagram" id="foot_img_inst">
+                <div href="" id="foot_text"><b>INSTAGRAM</b></div>
+            </a>
+
+            </section>
+        </div>
+        <hr class="visible-xs">
+        <div class="text-center">&copy; 2035 by Gelato. Powered and secured by Wix</div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -5,6 +5,7 @@ import org.example.project_ice.NotificationService;
 import org.example.project_ice.entity.Task;
 import org.example.project_ice.entity.User;
 import org.example.project_ice.repository.CategoryRepo;
+import org.example.project_ice.repository.ProductRepository;
 import org.example.project_ice.repository.TaskRepo;
 import org.example.project_ice.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,45 +37,47 @@ public class AdminController {
     @Autowired
     private CategoryRepo categoryRepo;
 
+    @Autowired
+    ProductRepository prodrepo;
+
     @GetMapping()
     public String adminDashboard(@RequestParam(required = false) Long category,
                                  @RequestParam(required = false) String status,
                                  @RequestParam(required = false) String sort,
-                                 @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(value = "search", required = false) String search,
                                  Model model) {
 
-        int pageSize = 10;
-        Page<Task> tasksPage;
-        Pageable pageable;
-
-        if (sort != null && !sort.isEmpty()) {
-            Sort sortOption = Sort.by("dueDate");
-            sortOption = "desc".equals(sort) ? sortOption.descending() : sortOption.ascending();
-            pageable = PageRequest.of(page, pageSize, sortOption);
-        } else {
-            pageable = PageRequest.of(page, pageSize);
-        }
-
-        if (category != null) {
-            Optional<Category> cate = categoryRepo.findById(category);
-            tasksPage = taskRepo.findByCategory(cate.get(), pageable);
-        } else if (status != null && !status.isEmpty()) {
-            tasksPage = taskRepo.findByStatus(status, pageable);
-        }  else if (search != null && !search.isEmpty()) {
-            tasksPage = taskRepo.findByTitleContaining(search, pageable);
-        }
-        else {
-            tasksPage = taskRepo.findAll(pageable);
-        }
-
-        model.addAttribute("users", userRepo.findAll());
-        model.addAttribute("tasks", tasksPage.getContent());
-        model.addAttribute("categories", categoryRepo.findAll());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", tasksPage.getTotalPages()); // Total number of pages
-
-        return "admin";
+//        int pageSize = 10;
+//        Page<Task> tasksPage;
+//        Pageable pageable;
+//
+//        if (sort != null && !sort.isEmpty()) {
+//            Sort sortOption = Sort.by("dueDate");
+//            sortOption = "desc".equals(sort) ? sortOption.descending() : sortOption.ascending();
+//            pageable = PageRequest.of(page, pageSize, sortOption);
+//        } else {
+//            pageable = PageRequest.of(page, pageSize);
+//        }
+//
+//        if (category != null) {
+//            Optional<Category> cate = categoryRepo.findById(category);
+//            tasksPage = taskRepo.findByCategory(cate.get(), pageable);
+//        } else if (status != null && !status.isEmpty()) {
+//            tasksPage = taskRepo.findByStatus(status, pageable);
+//        }  else if (search != null && !search.isEmpty()) {
+//            tasksPage = taskRepo.findByTitleContaining(search, pageable);
+//        }
+//        else {
+//            tasksPage = taskRepo.findAll(pageable);
+//        }
+//
+//        model.addAttribute("users", userRepo.findAll());
+//        model.addAttribute("tasks", tasksPage.getContent());
+//        model.addAttribute("categories", categoryRepo.findAll());
+//        model.addAttribute("currentPage", page);
+//        model.addAttribute("totalPages", tasksPage.getTotalPages()); // Total number of pages
+        model.addAttribute("ice_creams", prodrepo.findAll());
+        return "FrameThree_admin";
     }
 
     @GetMapping("/add")
