@@ -34,7 +34,9 @@
 
                 <div class="header__user-row logout_btn">
                     <img src="public/images/user_ico.png" alt="User Icon" class="header__user-icon"/>
-                    <p style="font-family: Comic Neue;" class="ui text size-textlg">Log in/Log out</p>
+                    <form th:action="@{/logout}" method="post">
+                        <button style="font-family: Comic Neue;" class="ui text size-textlg" type="submit">Log in/Log out</button>
+                    </form>
                 </div>
             </div>
 
@@ -69,44 +71,21 @@
         <!-- menu list section -->
         <div class="container-fluid">
             <div class="row">
-                <div class="product-details col-xl-4 col-md-6 col-sm-12">
-                    <img class="ice_img" src="public/images/ice_sample.png">
-                    <p class="product-details__name ui text size-text3x1">Name 1</p>
-                    <div class="product-details__divider"></div>
-                    <p class="product-details__description ui text size-textlg">Short info about ice cream in one/ two rows</p>
-                    <div class="product-details__stock">
-                        <p class="product-details__stock-quantity ui text size-text3x1">In stock: 2</p>
-                        <p class="product-details__price ui text size-textxl">9,00 Kč</p>
-                    </div>
-                    <button class="product-details__add-button ui button lime_300_f9 size-xl fill round"> Add to order</button>
+                <div class="product-details col-xl-4 col-md-6 col-sm-12" th:each="product : ${products}">
+                        <img class="ice_img" th:src="@{'/public/images/' + ${product.image}}" alt="Product Image">
+                        <p class="product-details__name ui text size-text3x1" th:text="${product.name}"></p>
+                        <div class="product-details__divider"></div>
+                        <p class="product-details__description ui text size-textlg" th:text="${product.description}"></p>
+                        <div class="product-details__stock">
+                            <p class="product-details__stock-quantity ui text size-text3x1" th:text="'In stock: ' + ${product.availableAmount}"></p>
+                            <p class="product-details__price ui text size-textxl" th:text="${product.price} + ' Kč'"></p>
+                        </div>
+                        <button class="product-details__add-button ui button lime_300_f9 size-xl fill round">Add to order</button>
                 </div>
-
-                <div class="product-details col-xl-4 col-md-6 col-sm-12">
-                    <img class="ice_img" src="public/images/ice_sample.png">
-                    <p class="product-details__name ui text size-text3x1">Name 1</p>
-                    <div class="product-details__divider"></div>
-                    <p class="product-details__description ui text size-textlg">Short info about ice cream in one/ two rows</p>
-                    <div class="product-details__stock">
-                        <p class="product-details__stock-quantity ui text size-text3x1">In stock: 2</p>
-                        <p class="product-details__price ui text size-textxl">9,00 Kč</p>
-                    </div>
-                    <button class="product-details__add-button ui button lime_300_f9 size-xl fill round"> Add to order</button>
-                </div>
-
-                <div class="product-details col-xl-4 col-md-6 col-sm-12"> 
-                    <img class="ice_img" src="public/images/ice_sample.png">
-                    <p class="product-details__name ui text size-text3x1">Name 1</p>
-                    <div class="product-details__divider"></div>
-                    <p class="product-details__description ui text size-textlg">Short info about ice cream in one/ two rows</p>
-                    <div class="product-details__stock">
-                        <p class="product-details__stock-quantity ui text size-text3x1">In stock: 2</p>
-                        <p class="product-details__price ui text size-textxl">9,00 Kč</p>
-                    </div>
-                    <button class="product-details__add-button ui button lime_300_f9 size-xl fill round"> Add to order</button>
-                </div> 
             </div>
         </div>
-    </div>
+    <div>
+
 
     <br>
 

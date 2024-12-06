@@ -1,6 +1,7 @@
 package org.example.project_ice.controllers;
 import org.example.project_ice.entity.User;
 import org.example.project_ice.repository.UserRepo;
+import org.example.project_ice.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -34,4 +38,12 @@ public class UserController {
     public String showLoginForm() {
         return "login";
     }
+
+
+    @GetMapping("/FrameOne")
+    public String frameOne(Model model) {
+        model.addAttribute("products", productService.getAllProducts());
+        return "FrameOne";
+    }
+
 }
