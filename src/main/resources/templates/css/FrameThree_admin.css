@@ -25,15 +25,24 @@
     border-radius: 10px 0px 0px 10px;
 }
 
+.delete{
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
 .refresh:hover,
-.add:hover{
+.add:hover,
+.delete:hover
+{
     background-color: rgb(0, 0, 0, 0.1);
     cursor: pointer;
     
 }
 
 .refresh:active,
-.add:active{
+.add:active,
+.delete:active{
     background-color: rgb(0, 0, 0, 0.2);
     cursor: pointer;
     
@@ -51,6 +60,103 @@
     }
 }
 
-.delete{
-    margin-left: 20px;
+.section__quantity-symbol--increment{
+    padding-left: 14px;
+}
+
+.section__quantity-stack{
+    margin-right: 10px;
+}
+
+.section__quantity-number{
+    margin-left: 25px;
+}
+
+.modal-img{
+    width: 19%;
+    position: relative;
+    float: left;
+}
+
+.modal-main{
+    position: relative;
+    float: right;
+    width: 80%;
+    display: flex;
+    justify-content: start;
+}
+
+.section__details-column{
+    position: relative;
+    float: left;
+}
+
+.modal__section__price-row{
+    padding: 0px 10px;
+
+}
+
+.modal-id{
+    display: flex;
+    justify-content: start;
+}
+
+.modal-id__inner{
+    cursor: default;
+}
+
+
+
+.input__wrapper {
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.input__file-button-text {
+    line-height: 1;
+    margin-top: 1px;
+    text-align: center;
+}
+
+.input__file-button {
+    width: 100%;
+    max-width: 290px;
+    height: 50px;
+    background: #1bbc9b;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.input__file-button:hover{
+    background: #18947c;
+    cursor: pointer;
+}
+
+.input__file-button:active{
+    background: #106e5e;
+    cursor: pointer;
+}
+
+.modal-body{
+    margin-bottom: 70px;
 }

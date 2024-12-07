@@ -66,18 +66,34 @@
                                                     <div class="section__quantity-row">
                                                         <div class="section__quantity-stack">
                                                             <div class="section__quantity-view--decrement">
-                                                                <p class="section__quantity-symbol--decrement ui text size-text3x1">-</p>
+                                                                <form>
+                                                                    <button type="submit" class="section__quantity-symbol--decrement ui text size-text3x1">-</button>
+                                                                </form>
+
                                                             </div>
                                                         </div>
                                                         <p class="section__quantity-number ui text size-textlg" th:text="${ice.availableAmount}"></p>
                                                         <div class="section__quantity-stack--increment">
                                                             <div class="section__quantity-view--increment">
-                                                                <p class="section__quantity-symbol--increment ui text size-text3x1">+</p>
+                                                                <form>
+                                                                    <button type="submit" class="section__quantity-symbol--increment ui text size-text3x1">+</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <p class="section__description ui text size-text2x1" th:text="${ice.price} + 'Kč'"></p>
-                                                    <p class="section__description delete ui text size-text2x1">Delete</p>
+                                                    <a th:href="@{|/admin/delete/${ice.id}|}" class="section__description delete ui text size-text2x1">Delete</a>
+                                                    <button
+                                                            type="button"
+                                                            class="section__description delete ui text size-text2x1"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal"
+                                                            th:data-id="${ice.id}"
+                                                            th:data-image="@{'/public/images/' + ${ice.image}}"
+                                                            th:data-name="${ice.name}"
+                                                            th:data-description="${ice.description}"
+                                                            th:data-availableAmount="${ice.availableAmount}"
+                                                            th:data-price="${ice.price}">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,12 +102,11 @@
                                 </div>
                             </div>
 
-                            <div> 
-
+                            <div>
                                 <div class="section__delivery-row">
                                     
                                     <form class="refresh ui text size-text2x1">
-                                        <button type="submit">Refresh information</button>
+                                        <button type="submit">Show history</button>
                                     </form>
 
                                     <form class="add ui text size-text2x1">
@@ -144,12 +159,114 @@
                 <img src="public/images/twit.png" alt="instagram" id="foot_img_inst">
                 <div href="" id="foot_text"><b>INSTAGRAM</b></div>
             </a>
-
             </section>
         </div>
         <hr class="visible-xs">
         <div class="text-center">&copy; 2035 by Gelato. Powered and secured by Wix</div>
         </div>
     </footer>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <form th:action="@{admin/edit}" method="post" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit ice cream
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                        <div class="modal-body">
+                            <div class="modal-id">
+                                <label>№</label>
+                                <input class="modal-id__inner" type="text" name="id" id="modalProductId" readonly>
+                            </div>
+
+                            <div class="section__image modal-img">
+                                <img id="modalProductImage" alt="Ice Cream Image"/>
+                                <input type="file" name="photo" accept="image/*" id="input__file" class="input input__file"/>
+
+                                <label for="input__file" class="input__file-button">
+                                    <span class="input__file-button-text">Выберите файл</span>
+                                </label>
+
+                            </div>
+
+                            <div class="modal-main">
+                                <div class="section__details">
+                                    <div class="section__details-row">
+                                        <div class="section__details-column">
+                                            <input type="text" class="section__name form-control ui text size-text3x1" name="name" id="modalProductName">
+                                            <input type="text" class="section__description form-control ui text size-textlg" name="description" id="modalProductDescription">
+                                        </div>
+                                        <div class="section__price-row modal__section__price-row">
+                                            <div class="section__quantity-row">
+                                                <input style="width: 100px;" type="number" id="modalProductAvailableAmount" name="availableAmount" class="section__quantity-number form-control ui text size-text2x1">
+                                            </div>
+                                            <input type="number" class="section__quantity-number form-control ui text size-text2x1" name="price" id="modalProductPrice">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        const editModal = document.getElementById('editModal');
+        editModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+
+            const id = button.getAttribute('data-id');
+            const image = button.getAttribute('data-image');
+            const name = button.getAttribute('data-name');
+            const description = button.getAttribute('data-description');
+            const availableAmount = button.getAttribute('data-availableAmount');
+            const price = button.getAttribute('data-price');
+
+            // Установка значений в модальное окно
+            document.getElementById('modalProductId').value = id;
+            document.getElementById('modalProductImage').src = image;
+            document.getElementById('modalProductName').value = name;
+            document.getElementById('modalProductDescription').value = description;
+            document.getElementById('modalProductAvailableAmount').value = availableAmount;
+            document.getElementById('modalProductPrice').value = price;
+        });
+
+        editModal.addEventListener('hidden.bs.modal', function () {
+            let input = document.querySelector('.input__file');
+            let label = input.nextElementSibling;
+            label.querySelector('.input__file-button-text').innerText = 'Выберите файл';
+        });
+    </script>
+
+    <script>
+        let inputs = document.querySelectorAll('.input__file');
+        Array.prototype.forEach.call(inputs, function (input) {
+            let label = input.nextElementSibling,
+                labelVal = label.querySelector('.input__file-button-text').innerText;
+
+            input.addEventListener('change', function (e) {
+                label.querySelector('.input__file-button-text').innerText = 'Файл выбран';
+            });
+
+            input.addEventListener
+        });
+    </script>
+
+    <script src="css/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

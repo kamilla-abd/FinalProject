@@ -2,6 +2,7 @@ package org.example.project_ice.controllers;
 import jakarta.validation.Valid;
 import org.example.project_ice.Category;
 import org.example.project_ice.NotificationService;
+import org.example.project_ice.entity.Product;
 import org.example.project_ice.entity.Task;
 import org.example.project_ice.entity.User;
 import org.example.project_ice.repository.CategoryRepo;
@@ -19,7 +20,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller()
@@ -111,45 +115,70 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/edit/{id}")
-    public String showEditTaskForm(@PathVariable("id") Long taskId, Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Task task = taskRepo.findByTaskId(taskId);
-        if (task == null) return "redirect:/admin";
-        model.addAttribute("task", task);
-        model.addAttribute("categories", categoryRepo.findAll());
-        model.addAttribute("users", userRepo.findAll());
-        return "task-form-admin";
-    }
-
-    @PostMapping("/edit/{id}")
-    public String editTask(@PathVariable("id") Long taskId, @Valid @ModelAttribute("task") Task task,
-                           BindingResult result, Model model) {
+    @PostMapping("/edit")
+    public String editTask(@Valid @ModelAttribute("product") Product prod,
+                           BindingResult result, @RequestParam("photo") MultipartFile photo, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("categories", categoryRepo.findAll());
             model.addAttribute("users", userRepo.findAll());
-            return "task-form-admin";
+            return "admin";
         }
-        Task n_task = taskRepo.findByTaskId(taskId);
-        if (n_task != null) {
-            n_task.setTitle(task.getTitle());
-            n_task.setDescription(task.getDescription());
-            n_task.setDueDate(task.getDueDate());
-            n_task.setStatus(task.getStatus());
-            n_task.setPriority(task.getPriority());
-            n_task.setCategory(task.getCategory());
-            n_task.setUser(task.getUser());
-            taskRepo.save(n_task);
+        Optional<Product> n_prod = prodrepo.findById(prod.getId());
+        if (n_prod.isPresent()) {
+            Product new_product = n_prod.get();
+            new_product.setId(prod.getId());
+            new_product.setDescription(prod.getDescription());
+            new_product.setName(prod.getName());
+            new_product.setPrice(prod.getPrice());
+            new_product.setAvailableAmount(prod.getAvailableAmount());
+
+            if (photo.isEmpty()) {
+                System.out.println("No file uploaded.");
+                prodrepo.save(new_product);
+                return "redirect:/admin";
+            }
+
+            String uploadDir = new File("src/main/resources/templates/public/images").getAbsolutePath();
+            File uploadDirectory = new File(uploadDir);
+
+            if (!uploadDirectory.exists()) {
+                uploadDirectory.mkdirs();
+            }
+
+            try {
+                String filePath = uploadDir + File.separator + photo.getOriginalFilename();
+                File destinationFile = new File(filePath);
+                photo.transferTo(destinationFile);
+
+                System.out.println("File uploaded successfully: " + filePath);
+                new_product.setImage(photo.getOriginalFilename());
+                prodrepo.save(new_product);
+            } catch (IOException e) {
+                System.out.println("File upload failed: " + e.getMessage());
+                try {
+                    String filePath = uploadDir + File.separator + "copy_" + photo.getOriginalFilename();
+                    File destinationFile = new File(filePath);
+                    photo.transferTo(destinationFile);
+
+                    System.out.println("File uploaded successfully: " + filePath);
+                    new_product.setImage(photo.getOriginalFilename());
+                    prodrepo.save(new_product);
+                }catch (IOException ex){
+                    System.out.println("File upload failed: " + e.getMessage());
+                }
+            }
+
+//
         }
 
         return "redirect:/admin";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTask(@PathVariable("id") Long taskId) {
-        Task task = taskRepo.findByTaskId(taskId);
-        if (task != null) {
-            taskRepo.delete(task);
+    public String deleteTask(@PathVariable("id") Long prodId) {
+        Optional<Product> prod = prodrepo.findById(prodId);
+        if (prod.isPresent()) {
+            prodrepo.delete(prod.get());
         }
         return "redirect:/admin";
     }
